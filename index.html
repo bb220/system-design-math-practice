@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Design Estimation Practice</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- START SCREEN -->
+    <div id="screen-start" class="screen active">
+      <div class="card">
+        <h1 class="start-title">System Design Estimation Practice</h1>
+        <p class="start-subtitle">
+          Sharpen your back-of-napkin math for system design interviews.
+          30 questions across 12 topics — estimate values, get instant feedback,
+          and build your intuition for capacity planning.
+        </p>
+        <button id="btn-start" class="btn btn-primary">Start Game</button>
+      </div>
+    </div>
+
+    <!-- QUESTION SCREEN -->
+    <div id="screen-question" class="screen">
+      <div class="card">
+        <div class="progress-text" id="q-progress">Question 1 of 30</div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="q-progress-bar" style="width: 0%"></div>
+        </div>
+        <span class="topic-tag" id="q-topic">Topic</span>
+        <p class="question-text" id="q-text">Question text here</p>
+        <div class="input-group">
+          <input type="number" id="q-input" placeholder="Your estimate" step="any" />
+          <span class="input-unit" id="q-unit">unit</span>
+        </div>
+        <div class="input-error" id="q-error"></div>
+        <div class="btn-row">
+          <button id="btn-submit" class="btn btn-primary">Submit</button>
+          <button id="btn-skip" class="btn btn-secondary">Skip</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEEDBACK SCREEN -->
+    <div id="screen-feedback" class="screen">
+      <div class="card">
+        <div class="fb-icon" id="fb-icon">✓</div>
+        <div class="fb-title" id="fb-title">Correct!</div>
+        <div class="fb-hint" id="fb-hint"></div>
+        <div class="fb-yours" id="fb-yours"></div>
+        <div class="fb-reference" id="fb-reference"></div>
+        <div class="fb-explanation" id="fb-explanation"></div>
+        <div class="fb-tip" id="fb-tip" style="display:none"></div>
+        <div class="fb-btn-row">
+          <button id="fb-next" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="screen-results" class="screen">
+      <div class="card">
+        <div class="results-header">
+          <div class="results-score" id="r-score">0 / 0 correct</div>
+          <div class="results-accuracy" id="r-accuracy">0% accuracy</div>
+        </div>
+        <div class="breakdown-title">Topic Breakdown</div>
+        <div id="r-breakdown"></div>
+        <div class="results-btn-row">
+          <button id="btn-restart" class="btn btn-primary">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/validator.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
