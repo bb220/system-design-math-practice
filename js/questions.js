@@ -321,5 +321,37 @@ const QUESTIONS = [
     referenceAnswer: 500,
     explanation: "5,000,000 keys / 10 nodes = 500,000 keys per node = 500K keys.",
     tip: "Virtual nodes improve uniformity. With enough vnodes, each physical node holds ~total_keys/N."
+  },
+
+  // === Networking (3) ===
+  {
+    id: 31,
+    topic: "Networking",
+    question: "AWS says ENA Express can raise maximum single-flow bandwidth to 25 Gbps. If you copy a 100 GB shard over one flow at that rate, about how long does the transfer take?",
+    unit: "seconds",
+    acceptableRange: [20, 50],
+    referenceAnswer: 32,
+    explanation: "100 GB = 800 Gb. 800 Gb / 25 Gbps = 32 seconds. AWS states ENA Express can raise max single-flow bandwidth to 25 Gbps.",
+    tip: "For network transfer estimates, convert bytes to bits first (multiply by 8), then divide by bandwidth."
+  },
+  {
+    id: 32,
+    topic: "Networking",
+    question: "Microsoft says Azure Availability Zones are designed with less than 2 ms latency between zones. If one user request triggers 4 sequential cross-zone RPCs, each paying 2 ms of round-trip latency, how much extra latency is added?",
+    unit: "ms",
+    acceptableRange: [5, 12],
+    referenceAnswer: 8,
+    explanation: "4 sequential RPCs x 2 ms each = 8 ms extra latency. Microsoft documents a latency perimeter of less than 2 ms between Availability Zones.",
+    tip: "Sequential network hops add; parallel hops do not. Count how many round trips are on the critical path."
+  },
+  {
+    id: 33,
+    topic: "Networking",
+    question: "Azure's network-optimized Dnsv6 VMs support up to 400,000 connections per second. If your edge tier must absorb 2.4 million new TCP connections/sec, how many VMs do you need assuming even load and no headroom?",
+    unit: "VMs",
+    acceptableRange: [4, 9],
+    referenceAnswer: 6,
+    explanation: "2.4 million / 400,000 = 6 VMs. Microsoft lists Dnsv6 at up to 400k connections per second.",
+    tip: "When sizing by connection setup rate, divide required CPS by per-node CPS, then add headroom separately."
   }
 ];

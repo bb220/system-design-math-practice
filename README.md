@@ -6,7 +6,7 @@ A gamified, Anki-style web app for practicing back-of-napkin math for system des
 
 ## Features
 
-- **30 questions across 12 topics**: APIs, Databases, Scaling, CAP Theorem, Auth & Security, Load Balancers, Caching, Message Queues, Indexing, Failovers, Replication, Consistent Hashing
+- **30+ questions across multiple topics**: APIs, Databases, Scaling, CAP Theorem, Auth & Security, Load Balancers, Caching, Message Queues, Indexing, Failovers, Replication, Consistent Hashing, Networking, etc.
 - **Expression input**: Type calculations like `1000 * 10 / 4` directly in the answer box
 - **Instant feedback**: Correct/incorrect with directional hints (too high/too low), reference answers, explanations, and tips
 - **Score tracking**: Per-topic breakdown after each game, historical scores persisted in localStorage
