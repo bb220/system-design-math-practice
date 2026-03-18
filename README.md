@@ -30,3 +30,7 @@ Two [Agent skills](https://agentskills.io/home) are included for managing the qu
 ## Tech Stack
 
 Vanilla HTML/CSS/JS — no framework, no build step. Deployed to GitHub Pages.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
