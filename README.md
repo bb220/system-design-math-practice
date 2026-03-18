@@ -34,3 +34,7 @@ Vanilla HTML/CSS/JS — no framework, no build step. Deployed to GitHub Pages.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Credit
+
+Refined by the [Impeccable Skills](https://impeccable.style/#hero)

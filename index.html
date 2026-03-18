@@ -4,49 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>System Design Estimation Practice</title>
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
   <div class="container">
 
     <!-- START SCREEN -->
     <div id="screen-start" class="screen active">
-      <div class="card">
-        <h1 class="start-title">System Design Estimation Practice</h1>
-        <p class="start-subtitle">
-          Sharpen your back-of-napkin math for system design interviews.
-          10 random questions from 33 across 13 topics — estimate values,
-          get instant feedback, and build your intuition for capacity planning.
-          You can type expressions like <code>1000 * 10 / 4</code> as answers.
-        </p>
-        <section class="start-callout" aria-labelledby="start-callout-title">
-          <p class="start-callout-kicker" id="start-callout-title">Built to be customized</p>
-          <p class="start-callout-copy">
-            This repo is designed to be extended with
-            <a href="https://claude.ai/cli_landing" target="_blank" rel="noopener noreferrer">Claude Code</a>
-            or
-            <a href="https://chatgpt.com/codex" target="_blank" rel="noopener noreferrer">Codex</a>.
-            It ships with Agent skills pre-built, so you can add new questions and audit the bank without
-            starting from scratch.
-          </p>
-          <ul class="start-callout-list">
-            <li><code>/add-questions</code> to grow the question bank</li>
-            <li><code>/audit-questions</code> to check math, ranges, clarity, and fairness</li>
-          </ul>
+      <section class="start-shell" aria-labelledby="start-title">
+        <div class="start-hero">
+          <div class="start-copy">
+            <p class="start-eyebrow">Interview Math Workbench</p>
+            <h1 class="start-title" id="start-title">System Design Estimation Practice</h1>
+            <p class="start-subtitle">
+              Practice back-of-napkin math for estimating and planning large-scale systems.
+              Work through 10 prompts per round, estimate quickly, and check your reasoning
+              against reference answers.
+            </p>
+          </div>
+          <dl class="start-facts" aria-label="Practice overview">
+            <div class="start-fact">
+              <dt>Question bank</dt>
+              <dd>33 prompts</dd>
+            </div>
+            <div class="start-fact">
+              <dt>Coverage</dt>
+              <dd>13 topics</dd>
+            </div>
+            <div class="start-fact">
+              <dt>Input</dt>
+              <dd>Use basic expressions like <code>64 / 2</code> to estimate values quickly.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <section class="start-custom" aria-labelledby="start-custom-title">
+          <div class="start-custom-copy">
+            <p class="start-section-label" id="start-custom-title">Made to be modified</p>
+            <p class="start-custom-text">
+              This repo does not just allow customization. It expects it.
+              Extend the question bank with
+              <a href="https://claude.ai/cli_landing" target="_blank" rel="noopener noreferrer">Claude Code</a>
+              or
+              <a href="https://chatgpt.com/codex" target="_blank" rel="noopener noreferrer">Codex</a>,
+              then use the bundled skills to add prompts or audit fairness without rebuilding the workflow.
+            </p>
+          </div>
+          <div class="start-skill-strip" aria-label="Bundled agent skills">
+            <span class="skill-chip"><code>/add-questions</code><span>Expand the bank</span></span>
+            <span class="skill-chip"><code>/audit-questions</code><span>Check math and fairness</span></span>
+          </div>
         </section>
-        <button id="btn-start" class="btn btn-primary">Start Practice</button>
+
+        <div class="start-actions">
+          <button id="btn-start" class="btn btn-primary">Start Practice</button>
+          <p class="start-action-note">Expression input supported. Try <code>1000 * 10 / 4</code>.</p>
+        </div>
         <div id="start-history" style="display:none"></div>
-      </div>
+      </section>
     </div>
 
     <!-- QUESTION SCREEN -->
     <div id="screen-question" class="screen">
-      <div class="card">
-        <div class="progress-text" id="q-progress">Question 1 of 10</div>
+      <section class="workbench-shell">
+      <div class="card card-question">
+        <div class="card-topline">
+          <p class="card-kicker">Practice Round</p>
+          <div class="progress-text" id="q-progress">Question 1 of 10</div>
+        </div>
         <div class="progress-bar-track">
           <div class="progress-bar-fill" id="q-progress-bar" style="width: 0%"></div>
         </div>
-        <span class="topic-tag" id="q-topic">Topic</span>
+        <div class="question-meta">
+          <span class="topic-tag" id="q-topic">Topic</span>
+          <span class="question-prompt-note">Estimate first, then compare.</span>
+        </div>
         <p class="question-text" id="q-text">Question text here</p>
         <div class="input-group">
           <input type="text" id="q-input" placeholder="Your estimate (e.g. 64 / 2)" step="any" inputmode="decimal" />
@@ -58,11 +93,14 @@
           <button id="btn-skip" class="btn btn-secondary">Skip</button>
         </div>
       </div>
+      </section>
     </div>
 
     <!-- FEEDBACK SCREEN -->
     <div id="screen-feedback" class="screen">
-      <div class="card">
+      <section class="workbench-shell">
+      <div class="card card-feedback">
+        <p class="card-kicker">Review</p>
         <div class="fb-icon" id="fb-icon">&#10003;</div>
         <div class="fb-title" id="fb-title">Correct!</div>
         <div class="fb-hint" id="fb-hint"></div>
@@ -74,11 +112,14 @@
           <button id="fb-next" class="btn btn-primary">Next</button>
         </div>
       </div>
+      </section>
     </div>
 
     <!-- RESULTS SCREEN -->
     <div id="screen-results" class="screen">
-      <div class="card">
+      <section class="workbench-shell">
+      <div class="card card-results">
+        <p class="card-kicker">Round Summary</p>
         <div class="results-header">
           <div class="results-score" id="r-score">0 / 0 correct</div>
           <div class="results-accuracy" id="r-accuracy">0% accuracy</div>
@@ -90,6 +131,7 @@
           <button id="btn-restart" class="btn btn-primary">Play Again</button>
         </div>
       </div>
+      </section>
     </div>
 
   </div>
